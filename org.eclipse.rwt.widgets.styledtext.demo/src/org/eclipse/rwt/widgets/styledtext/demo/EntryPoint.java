@@ -48,13 +48,6 @@ public class EntryPoint implements IEntryPoint {
     "lifecycle. (We started with the best Java IDE ever and we've grown \n" +
     "from there.)";
 
-  private static final Color BG_COLOR_GREEN = Graphics.getColor( 154, 205, 50 );
-  private static final Color BG_COLOR_BLUE = Graphics.getColor( 105, 89, 205 );
-  private static final Color BG_COLOR_BROWN = Graphics.getColor( 192, 172, 137 );
-  private static final Color FG_COLOR_RED = Graphics.getColor( 194, 0, 23 );
-  private static final Color FG_COLOR_BLUE = Graphics.getColor( 28, 96, 141 );
-  private static final Color FG_COLOR_ORANGE = Graphics.getColor( 249, 158, 0 );
-
   private Shell mainShell;
   private Composite widgetContainer;
   private Composite styleComp;
@@ -68,23 +61,24 @@ public class EntryPoint implements IEntryPoint {
   private int bgIndex;
 
   public int createUI() {
-    Display display = PlatformUI.createDisplay();
+    Display display = Display.getDefault();
 
     mainShell = new Shell( display, SWT.DIALOG_TRIM | SWT.RESIZE | SWT.MAX );
     mainShell.setLayout( new FillLayout() );
     mainShell.setText( "StyledText Demo" );
+    mainShell.setMaximized(true);
 
     bgColors = new Color[] {
       null,
-      BG_COLOR_GREEN,
-      BG_COLOR_BLUE,
-      BG_COLOR_BROWN
+      Graphics.getColor( 154, 205, 50 ),
+      Graphics.getColor( 105, 89, 205 ),
+      Graphics.getColor( 192, 172, 137 )
     };
     fgColors = new Color[] {
       null,
-      FG_COLOR_RED,
-      FG_COLOR_BLUE,
-      FG_COLOR_ORANGE
+      Graphics.getColor( 194, 0, 23 ),
+      Graphics.getColor( 28, 96, 141 ),
+      Graphics.getColor( 249, 158, 0 )
     };
 
     createContent( mainShell );
@@ -96,7 +90,6 @@ public class EntryPoint implements IEntryPoint {
       }
     } );
 
-    mainShell.setBounds( 100, 50, 800, 650 );
     mainShell.open();
     while( !mainShell.isDisposed() ) {
       if( !display.readAndDispatch() ) {
@@ -169,7 +162,6 @@ public class EntryPoint implements IEntryPoint {
 
   private void createSelectionGroup() {
     Group group = new Group( styleComp, SWT.NONE );
-    group.setLayoutData( new RowData( 270, 70 ) );
     group.setLayout( new RowLayout( SWT.VERTICAL ) );
     group.setText( "Selection" );
 
@@ -187,7 +179,6 @@ public class EntryPoint implements IEntryPoint {
 
   private void createStyleRangesGroup() {
     Group group = new Group( styleComp, SWT.NONE );
-    group.setLayoutData( new RowData( 270, 150 ) );
     group.setLayout( new GridLayout( 2, false ) );
     group.setText( "Style Range" );
 
@@ -335,7 +326,6 @@ public class EntryPoint implements IEntryPoint {
 
   private void createTextGroup() {
     Group group = new Group( styleComp, SWT.NONE );
-    group.setLayoutData( new RowData( 270, 145 ) );
     group.setLayout( new RowLayout( SWT.VERTICAL ) );
     group.setText( "Text" );
 

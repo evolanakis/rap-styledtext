@@ -4,9 +4,9 @@ Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.eclipse.rwt.widgets.styledtext.test
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.junit,
  org.eclipse.rwt.widgets.styledtext,
- org.eclipse.rap.rwt
+ org.eclipse.rap.rwt;bundle-version="[1.5.0,2.0.0)"
 Import-Package: org.eclipse.rap.rwt.testfixture

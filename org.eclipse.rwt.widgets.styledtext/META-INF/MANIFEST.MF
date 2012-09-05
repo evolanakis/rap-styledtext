@@ -6,8 +6,8 @@ Bundle-Localization: plugin
 Bundle-SymbolicName: org.eclipse.rwt.widgets.styledtext;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Require-Bundle: org.eclipse.rap.rwt,
- org.eclipse.rap.ui
+Require-Bundle: org.eclipse.rap.rwt;bundle-version="[1.5.0,2.0.0)",
+ org.eclipse.rap.ui;bundle-version="[1.5.0,2.0.0)"
 Export-Package: org.eclipse.swt.custom,
  org.eclipse.swt.graphics,
  org.eclipse.swt.internal.custom;x-friends:="org.eclipse.rwt.widgets.styledtext.test",
